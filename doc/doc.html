@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe API Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        h2 {
+            color: #34495e;
+        }
+        pre {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-left: 3px solid #3498db;
+            color: #666;
+            page-break-inside: avoid;
+            font-family: monospace;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 1.6em;
+            max-width: 100%;
+            overflow: auto;
+            padding: 1em 1.5em;
+            display: block;
+            word-wrap: break-word;
+        }
+        .endpoint {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Recipe API Documentation</h1>
+    
+    <div class="endpoint">
+        <h2>Get all recipes</h2>
+        <pre>curl -X GET http://localhost:5000/recipes</pre>
+    </div>
+    
+    <div class="endpoint">
+        <h2>Get a specific recipe</h2>
+        <pre>curl -X GET http://localhost:5000/recipe/1</pre>
+        <p>Replace '1' with the desired dish_id</p>
+    </div>
+    
+    <div class="endpoint">
+        <h2>Create a new recipe</h2>
+        <pre>curl -X POST http://localhost:5000/recipe \
+  -H "Content-Type: application/json" \
+  -d '{
+    "dish_name": "Spaghetti Carbonara",
+    "description": "Classic Italian pasta dish",
+    "spice": "Mild",
+    "prep_time": "15 minutes",
+    "serves": 4,
+    "dietary_info": "Contains dairy, eggs",
+    "cook_time": "20 minutes",
+    "ingredients": "400g spaghetti, 200g pancetta, 4 eggs, 100g Pecorino cheese, Black pepper",
+    "instructions": "1. Cook pasta. 2. Fry pancetta. 3. Mix eggs and cheese. 4. Combine all ingredients.",
+    "image_url": "https://example.com/carbonara.jpg"
+  }'</pre>
+    </div>
+    
+    <div class="endpoint">
+        <h2>Update an existing recipe</h2>
+        <pre>curl -X PUT http://localhost:5000/recipe/1 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "dish_name": "Spaghetti Carbonara Deluxe",
+    "description": "Upgraded classic Italian pasta dish",
+    "spice": "Medium",
+    "prep_time": "20 minutes"
+  }'</pre>
+        <p>Replace '1' with the desired dish_id</p>
+    </div>
+    
+    <div class="endpoint">
+        <h2>Delete a recipe</h2>
+        <pre>curl -X DELETE http://localhost:5000/recipe/1</pre>
+        <p>Replace '1' with the desired dish_id</p>
+    </div>
+    
+    <div class="endpoint">
+        <h2>Get the documentation</h2>
+        <pre>curl -X GET http://localhost:5000/doc</pre>
+    </div>
+</body>
+</html>
